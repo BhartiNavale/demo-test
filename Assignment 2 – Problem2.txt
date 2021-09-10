@@ -1,0 +1,104 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Member
+{
+    char name[20], address[50];
+
+    int age, ph_number;
+
+public:
+    float salary;
+    void setData()
+    {
+        cout << "Name: " << endl;
+        cin >> name;
+        cout << "Age: " << endl;
+        cin >> age;
+        cout << "Phone Number: " << endl;
+        cin >> ph_number;
+        cout << "Address: " << endl;
+        cin >> address;
+        cout << "Salary: " << endl;
+        cin >> salary;
+    }
+    void display()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Phone Number: " << ph_number << endl;
+        cout << "Address: " << address << endl;
+        cout << "Salary: " << salary << endl;
+    }
+};
+
+class Employee : public Member
+{
+    char specialization[20], department[20];
+
+public:
+    void setData()
+    {
+        cout << endl;
+        cout << "Enter the details of the Employee" << endl;
+        Member::setData();
+        cout << "Specialization: " << endl;
+        cin >> specialization;
+        cout << "Department: " << endl;
+        cin >> department;
+    }
+    void display()
+    {
+        cout << "Details of an Employee" << endl;
+        Member::display();
+        cout << "Specialization: " << specialization << endl;
+        cout << "Department: " << department << endl;
+    }
+    void printSalary()
+    {
+        cout << "Salary of the member is: " << salary << endl;
+    }
+};
+
+class Manager : public Member
+{
+    char specialization[20], department[20];
+
+public:
+    void setData()
+    {
+        cout << endl;
+        cout << "Enter the details of the Manager" << endl;
+        Member::setData();
+        cout << "Specialization: " << endl;
+        cin >> specialization;
+        cout << "Department: " << endl;
+        cin >> department;
+    }
+    void display()
+    {
+        cout << "Details of the Manager" << endl;
+        Member::display();
+        cout << "Specialization: " << specialization << endl;
+        cout << "Department: " << department << endl;
+    }
+    void printSalary()
+    {
+        cout << "Salary of the member is: " << salary << endl;
+    }
+};
+
+int main()
+{
+    Employee emp;
+    Manager mg;
+    emp.setData();
+    mg.setData();
+    emp.display();
+    emp.printSalary();
+    mg.display();
+    mg.printSalary();
+
+    return 0;
+}
